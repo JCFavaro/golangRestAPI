@@ -14,7 +14,7 @@ Simple Rest API with CRUD operations to handle tasks.
 ## Built with 🛠️
 
 * [Golang](https://golang.org/) for the backend 
-* [gorilla/mux](https://github.com/gorilla/mux) to implement a router and handle all routes
+* [gorilla/mux](https://github.com/gorilla/mux) to implement a request router
 * [GO CORS handler](https://github.com/rs/cors) was used for enable CORS
 
 
