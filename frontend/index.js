@@ -8,8 +8,8 @@ fetch('http://localhost:8080/').then(function (response) {
 	return response.json();
 
 }).then(function (data) {
-	// This is the JSON from our response
-
+	
+	//For every task that exist
 	for (var i = 0; i < data.length; i++) {
 
 		var cell1 = document.createElement("td");
@@ -17,6 +17,7 @@ fetch('http://localhost:8080/').then(function (response) {
 		var cell3 = document.createElement("td");
 
 		var deleteButton = document.createElement("a");
+
 		deleteButton.setAttribute("class", "btn btn-danger btn-sm");
 
 		var row = document.createElement("tr");
@@ -29,13 +30,15 @@ fetch('http://localhost:8080/').then(function (response) {
 
 		row.appendChild(th);
 
+		// 3 is the attributes numbers
 		for (var j = 0; j < 3; j++) {
 			var cellName = document.createTextNode(data[i].Name);
 
 			var contentCell = document.createTextNode(data[i].Content);
 
 			deleteButton.innerText = 'Delete';
-			deleteButton.setAttribute("id", i + 1);
+			deleteButton.setAttribute("id", data[i].ID);
+
 		}
 
 		cell1.appendChild(cellName);
@@ -49,7 +52,14 @@ fetch('http://localhost:8080/').then(function (response) {
 
 		//Add the row to the end of the table
 		tblBody.appendChild(row);
+
+
+		// Delete method and the ID rearranges
+		deleteButton.addEventListener("click", deleteTask);
 	}
+
+
+
 
 }).catch(function (err) {
 
@@ -84,8 +94,7 @@ class DeleteHTTP {
 
 const http = new DeleteHTTP;
 
-
-deleteButton.addEventListener("click", function () {
+function deleteTask() {
 
 	// Update Post 
 	http.delete('http://localhost:8080/task/' + this.id)
@@ -101,6 +110,4 @@ deleteButton.addEventListener("click", function () {
 		.catch(err => console.log(err));
 
 	console.log('response deleted...');
-})
-
-
+}

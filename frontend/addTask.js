@@ -14,12 +14,12 @@ sendButton.addEventListener('submit', e => {
         }
     }).then(function (response) {
         if (response.ok) {
+            window.location.href = "http://127.0.0.1:5500/frontend/index.html"
             return response.json();
         }
         return Promise.reject(response);
-    }).then(function (data) {
-        console.log(data);
-    }).catch(function (error) {
+    })
+    .catch(function (error) {
         console.warn('Something went wrong.', error);
     });
 })
