@@ -9,8 +9,8 @@ type task struct {
 var tasks = allTasks{
 	{
 		ID:      1,
-		Name:    "Task one",
-		Content: "Some first content",
+		Name:    "Test Task",
+		Content: "Some first content for test",
 	},
 }
 
