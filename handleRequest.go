@@ -36,9 +36,5 @@ func handleRequest() {
 	*	Second parameter: Router we have defined
 	*	log.fatal if the server isn't create, give me an error
 	**/
-
-	//Deploy automatically assigns a port our web server. If it
-	//fails we instruct it to use port 5000
-
 	log.Fatal(http.ListenAndServe(":8080", handler))
 }
