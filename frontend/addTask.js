@@ -3,7 +3,7 @@ var sendButton = document.getElementById('postForm');
 sendButton.addEventListener('submit', e => {
     e.preventDefault();
 
-    fetch('http://localhost:8080/newTask', {
+    fetch('/newTask', {
         method: 'POST',
         body: JSON.stringify({
             Name: e.target[0].value,

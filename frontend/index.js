@@ -2,31 +2,35 @@ var tblBody = document.getElementById("tbody");
 
 
 // GET METHOD, return all tasks and put on the table
-fetch('http://localhost:8080/').then(function (response) {
+fetch('/').then(function (response) {
 
 	// The API call was successful!
 	return response.json();
 
 }).then(function (data) {
-	
+
 	//For every task that exist
 	for (var i = 0; i < data.length; i++) {
+
+		var th = document.createElement("th");
 
 		var cell1 = document.createElement("td");
 		var cell2 = document.createElement("td");
 		var cell3 = document.createElement("td");
 
 		var deleteButton = document.createElement("a");
-
-		deleteButton.setAttribute("class", "btn btn-danger btn-sm");
+		var updateButton = document.createElement("a");
 
 		var row = document.createElement("tr");
-
-		var th = document.createElement("th");
 
 		th.setAttribute("scope", "row");
 
 		th.innerHTML = i + 1;
+
+		cell3.setAttribute("class", "d-flex justify-content-evenly");
+
+		deleteButton.setAttribute("class", "btn btn-danger btn-sm");
+		updateButton.setAttribute("class", "btn btn-primary btn-sm");
 
 		row.appendChild(th);
 
@@ -35,6 +39,9 @@ fetch('http://localhost:8080/').then(function (response) {
 			var cellName = document.createTextNode(data[i].Name);
 
 			var contentCell = document.createTextNode(data[i].Content);
+
+			updateButton.innerText = 'Update';
+			updateButton.setAttribute("id", data[i].ID);
 
 			deleteButton.innerText = 'Delete';
 			deleteButton.setAttribute("id", data[i].ID);
@@ -47,6 +54,7 @@ fetch('http://localhost:8080/').then(function (response) {
 		cell2.appendChild(contentCell);
 		row.appendChild(cell2);
 
+		cell3.appendChild(updateButton);
 		cell3.appendChild(deleteButton);
 		row.appendChild(cell3);
 
@@ -97,7 +105,7 @@ const http = new DeleteHTTP;
 function deleteTask() {
 
 	// Update Post 
-	http.delete('http://localhost:8080/task/' + this.id)
+	http.delete('/task/' + this.id)
 
 		// Resolving promise for response data 
 		.then(data => {

@@ -42,3 +42,13 @@ body {
     color: #fff;
     cursor: pointer;
 }
+
+#goBack {
+    background-color: rgb(9, 66, 172);
+    color: white;
+    text-align: center;
+}
+
+#goBack:hover {
+    text-decoration: none !important;
+}

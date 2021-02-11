@@ -2,7 +2,9 @@ package main
 
 import (
 	//If server isn't created correctly
+	"fmt"
 	"log"
+	"os"
 
 	//To create HTTP server
 	"net/http"
@@ -12,6 +14,19 @@ import (
 
 	"github.com/rs/cors"
 )
+
+// Get the Port from the environment so we can run on Heroku
+func getPort() string {
+	var port = os.Getenv("PORT")
+
+	//Set a default port if there is nothing in the environment
+	if port == "" {
+		port = "4747"
+		fmt.Println("INFO: No PORT environment variable detected, defaulting to " + port)
+	}
+
+	return ":" + port
+}
 
 func handleRequest() {
 
@@ -36,5 +51,5 @@ func handleRequest() {
 	*	Second parameter: Router we have defined
 	*	log.fatal if the server isn't create, give me an error
 	**/
-	log.Fatal(http.ListenAndServe(":8080", handler))
+	log.Fatal(http.ListenAndServe(getPort(), handler))
 }
