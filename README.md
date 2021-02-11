@@ -19,6 +19,13 @@ Simple Rest API with CRUD operations to handle tasks.
 * Vanilla JavaScript using [API Fetch](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch) to fetch the API
 * Frontend with [Bootstrap](https://getbootstrap.com/)
 
+## Deploy 📦
+
+- ### Backend on Heroku!
+- [x] https://rest-go-api.herokuapp.com
+
+- ### Frontend on Netlify!
+- [X] https://upbeat-agnesi-98c16f.netlify.app/
 
 ---
 ⌨️ with ❤️ by [Favaro Juan Cruz](https://github.com/JCFavaro) 😊
