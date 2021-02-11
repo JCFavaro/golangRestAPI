@@ -1,5 +1,7 @@
 # Task Rest API 
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/0fa17e59-7a8d-4c89-84d0-e986a016f55e/deploy-status)](https://app.netlify.com/sites/upbeat-agnesi-98c16f/deploys)
+
 ## Description 🚀
 
 Simple Rest API with CRUD operations to handle tasks.
