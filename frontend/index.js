@@ -2,7 +2,7 @@ var tblBody = document.getElementById("tbody");
 
 
 // GET METHOD, return all tasks and put on the table
-fetch('/').then(function (response) {
+fetch('https://rest-go-api.herokuapp.com/').then(function (response) {
 
 	// The API call was successful!
 	return response.json();
@@ -105,7 +105,7 @@ const http = new DeleteHTTP;
 function deleteTask() {
 
 	// Update Post 
-	http.delete('/task/' + this.id)
+	http.delete('https://rest-go-api.herokuapp.com/task/' + this.id)
 
 		// Resolving promise for response data 
 		.then(data => {

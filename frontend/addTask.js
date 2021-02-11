@@ -3,7 +3,7 @@ var sendButton = document.getElementById('postForm');
 sendButton.addEventListener('submit', e => {
     e.preventDefault();
 
-    fetch('/newTask', {
+    fetch('https://rest-go-api.herokuapp.com/newTask', {
         method: 'POST',
         body: JSON.stringify({
             Name: e.target[0].value,
@@ -14,7 +14,7 @@ sendButton.addEventListener('submit', e => {
         }
     }).then(function (response) {
         if (response.ok) {
-            window.location.href = "http://127.0.0.1:5500/frontend/index.html"
+            window.location.href = "/"
             return response.json();
         }
         return Promise.reject(response);
