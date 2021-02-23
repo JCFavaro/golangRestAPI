@@ -23,7 +23,7 @@ Simple Rest API with CRUD operations to handle tasks.
 
 ## Deploy 📦
 
-- ### Backend on Heroku!
+- ### Backend on Heroku! (maybe you have to "turn on" the API first to use the app)
 - [x] https://rest-go-api.herokuapp.com
 
 - ### Frontend on Netlify!
